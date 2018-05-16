@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQueryUI插件</title>
+    <meta name="description" content="本站致力于收集jQuery插件和提供各种jQuery特效的详细使用方法,在线预览，jQuery插件下载及教程" />
+    <meta na me="keywords" content="jQuery,jQuery特效,jQuery ui,jQuery插件,jQuery 教程,css3,网页特效,JS特效" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA
+-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/c
+ss/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link rel="Shortcut icon" href="http://www.jq22.com/favicon.ico" />
+    <!--[if lt IE 9]> <script src="/js/respond.min.js"></script> <script src="/js/
+html5shiv.min.js"></script>    <![endif]-->
+    <link href="/css/my.css" rel="stylesheet" media="screen">
+    <script>
+        var n = 1;
+    </script>
+    <style>
+        .felbanner {
+            height: 108px;
+            background-color: #202932;
+            padding-top: 35px;
+            background-image: url(css/flbg.png)
+        }
+        
+        .top70 {
+            margin-top: 50px;
+        }
+        
+        .feiseo {
+            width: 680px;
+            height: 37px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .feiseo input {
+            width: 100%;
+            height: 100%;
+            border: 0px;
+            outline: none;
+            padding-left: 3%;
+            padding-right: 3%;
+            background-color: #2f3a46;
+            color: #fff;
+            border-radius: 40px;
+        }
+        
+        .feiseo button {
+            position: absolute;
+            right: 5px;
+            top: 2px;
+            color: #5b6e81
+        }
+        
+        #ts a {
+            margin-left: 10px;
+            color: #808080
+        }
+        
+        #ts a:hover {
+            color: #09b7fa;
+            text-decoration: none;
+        }
+        
+        .jjk20 {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        
+        @media screen and (min-width:1200px) {
+            .col-lg-4 {
+                width: 23.2%;
+            }
+        }
+        
+        @media screen and (max-width:770px) {
+            #ts {
+                width: 85%;
+                display: none
+            }
+            .feiseo {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-example">
+    <!--nav-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"> <button type="button" c lass="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"
+></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-logo" href="http://www.jq22.com/"><img src="http://www.jq22.com/img/logo.png" height="100%" alt="jQuery插件,jQuery,jQuery特效.jQuery ui,jQuery 教
+程,css3,网页特效,JS特效"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.jq22.com/daima"><i class="fa fa
+-code"></i> &nbsp;在线代码</a></li>
+                    <li><a href="http://www.jq22.com/textDifference"><i class="fa fa-balance-scale" aria-hidden="true"></i> &nbsp;文本比较</a></li>
+                    <li><a href="http://www.jq22.com/j
+query-info122"><i class="fa fa-download"></i> &nbsp;jQuery下载</a></li>
+                    <li><a href="http://www.jq22.com/jquery/jquery.html" target="_blank"><i class="fa fa-ship" aria-hidden="true"></i> &nbsp;前端库</a></li>
+                    <li><a href="http://www.jq22.com/chm/jquery/index.html" target="_blank"><i class="fa fa-book"></i> &nbsp;在线手册</a></li>
+                    <li class="dropdown"><a rel="nofollow" href="http://weibo.com/jq22" target="_bl
+ank"><i class="fa fa-weibo"></i> &nbsp;微博</a></li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-user"></i> &nbsp;注册/登录<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!--end nav-->
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModa
+l" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content2 tcc">
+                <div class="modal-header2 top20">
+                    <but ton type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+                        <h4 class="modal-title" id="myModalLabel"> </h4>
+                </div>
+                <div class="modal-body tcck">
+                    <div class="input-group input-group-lg parentCls"> <span class="input-group-addon" id="email"><i class
+="fa fa-envelope-o"></i></span> <input type="text" class="form-control inputElem" placeholder="请输入登录邮箱" aria-describedby="email" id="ema" style="width: 466px;">
+                    </div>
+                    <div class="input-group input-group-lg top20"> <span class="input-group-addon" id="pwd"><i class="fa fa-unlock-alt" style="width:18px"></i></span> <input type="password" class="form-control" placeholder="请输入登录密码" aria-describedby="pwd" id="pw"> <span class="input-group-btn tccBut">                <button class="btn btn-success" type="button" onclick="
+emdl()">登 录</button>              </span> </div>
+                </div>
+                <div class="modal-footer2">
+                    <div class="f"> <a href="pwd.aspx">
+忘记密码?</a></div>
+                    <div class="r"><a href="register.aspx">注册新用户</a></div>
+                    <div class="dr"></div>
+                </div>
+                <div class="d3f modal-body tcck2">
+                    <a href="#" onClick="tz()" class="qq"></a>
+                    <a href="https://api.weibo.com:443/oauth2/authorize?client_id=3364913104&redirect_uri=http%3A%2F%2Fwww.jq22.com%2FWeiboReturn.aspx&response_type=co
+de&display=default" class="sina"></a>
+                    <a href="http://www.jq22.com/zfbReturn.aspx" class="zfb"></a>
+                    <a href="#" onClick="gt()" class="git"></a>
+                </div>
+                <script>
+                    function tz() {
+
+                        var urldz = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101135281&redirect_uri=http://www.jq22.com/QQReturn.aspx?tjurl=" + window.location.h
+                        ref;
+                        window.location.href = urldz;
+
+                    }
+
+
+                    function gt() {
+
+                        var urldz = "https://github.com/login/oauth/authorize?client_id=cf869185ea7d8fcab6df&state=jq22&redirect_uri = http://www.jq22.com/github.aspx?tjurl=" + window.location.href;
+                        window.location.href = urldz;
+                    }
+                </script>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <div class="yn jz container-fluid nav-bgn m0" id="menu_wrap">
+        <div class="container m0" style="position:relative;"><a class="nzz" href="http://www.jq22.com/jqueryUI-1-j
+q" id="z1"><span class="sort"><i class="fa fa-paint-brush"></i>&nbsp;UI <i class="fa fa-angle-down"></i></span></a>|<a class="nzz" href="http://www.jq22.com/jquery输入-1-jq" id="z2"><span class="sort"><i class="fa fa-keybo
+ard-o"></i>&nbsp;输入 <i class="fa fa-angle-down"></i></span></a>|<a class="nzz" href="http://www.jq22.com/jquery媒体-1-jq" id="z3"><span class="sort"><i class="fa fa-film"></i>&nbsp;媒体 <i class="fa fa-angle-down"></i></
+span></a>|<a class="nzz" href="http://www.jq22.com/jquery导航-1-jq" id="z4"><span class="sort "><i class="fa fa-paper-plane-o"></i>&nbsp;导航 <i class="fa fa-angle-down"></i></span></a><span class="navxs">|<a class="nzz" h
+ref="http://www.jq22.com/jquery其他-1-jq" id="z5"><span class="sort"><i class="fa fa-dropbox"></i>&nbsp;其他 <i class="fa fa-angle-down"></i></span></a>
+            </span><span class="navxs">|<a href="http://www.jq22.com/jquery-plugin
+s布局-1-jq" target="_blank"><span class="sort"><i class="fa fa-th-large"></i>&nbsp;网页模板</span></a>|<a href="http://www.jq22.com/webinfo1" target="_blank"><span class="sort"><i class="fa fa-file-code-o"></i>&nbsp;常用代
+码</span></a></span><span class="adgg">|<a href="https://www.vpsor.com/action/aff/?id=12952" target="_blank" onclick="adtonji2()"><span class="sort"><i class="fa fa-thumbs-up"></i>&nbsp;<b>虚拟主机</b></span></a>
+            </span>
+            </d iv>
+            <script>
+                function adtonji2() {
+                    $.post("adtongji.aspx", {
+                        name: "a2"
+                    })
+                }
+            </script>
+            <div class="container-fluid">
+                <div id="n1" class="nav-zi ty" style="display: none;">
+                    <ul id="nz1" class="nn list-inline c
+ontainer m0" style="display: none;">
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins背景-1-jq"><i class="fa fa-delicious ls"></i>背景</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="ht
+tp://www.jq22.com/jquery-plugins对话框和灯箱-1-jq"><i class="fa fa-bell-o ls"></i>对话框和灯箱</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins筛选及排序-1-jq"><i class="fa fa-sort-n
+umeric-desc ls"></i>筛选及排序</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins反馈-1-jq"><i class="fa fa-comments-o ls"></i>反馈</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins弹出层-1-jq"><i class="fa fa-stack-overflow ls"></i>弹出层</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins悬停-1-jq"><i class="fa fa-hand-o-up ls
+"></i>悬停</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins布局-1-jq"><i class="fa fa-th-large ls"></i>布局</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/
+jquery-plugins图表-1-jq"><i class="fa fa-bar-chart ls"></i>图表</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins加载-1-jq"><i class="fa fa-spinner ls"></i>加载</a></li>
+                        <li><a class="
+c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins圆边-1-jq"><i class="fa fa-circle-o ls"></i>圆边</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins滚动-1-jq"><i class
+="fa fa-long-arrow-down ls"></i>滚动</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins标签-1-jq"><i class="fa fa-tags ls"></i>标签</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins文本链接-1-jq"><i class="fa fa-link ls"></i>文本链接</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins工具提示-1-jq"><i class="fa fa-info-circle ls
+"></i>工具提示</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins网络类型-1-jq"><i class="fa fa-code-fork ls"></i>网络类型</a></li>
+                    </ul>
+                    <ul id="nz2" class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins拾色器-1-jq"><i class="fa fa-eyedropper ls"></i>拾色器</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://ww
+w.jq22.com/jquery-plugins定制和风格-1-jq"><i class="fa fa-paint-brush ls"></i>定制和风格</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins日期和时间-1-jq"><i class="fa fa-clock-o ls">
+</i>日期和时间</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins拖和放-1-jq"><i class="fa fa-arrows ls"></i>拖和放</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq2
+2.com/jquery-plugins通用输入-1-jq"><i class="fa fa-keyboard-o ls"></i>通用输入</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins自动完成-1-jq"><i class="fa fa-calculator ls"></i>自动
+完成</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins密码-1-jq"><i class="fa fa-lock ls"></i>密码</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plu
+gins投票率-1-jq"><i class="fa fa-thumbs-up ls"></i>投票率</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins搜索-1-jq"><i class="fa fa-search ls"></i>搜索</a></li>
+                        <li><a class="c-btn c
+-btn--border-line" href="http://www.jq22.com/jquery-plugins选择框-1-jq"><i class="fa fa-caret-square-o-down ls"></i>选择框</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins快捷键-1-jq
+"><i class="fa fa-adn ls"></i>快捷键</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins触摸-1-jq"><i class="fa fa-hand-o-down ls"></i>触摸</a></li>
+                        <li><a class="c-btn c-btn--border-lin
+e" href="http://www.jq22.com/jquery-plugins丰富的输入-1-jq"><i class="fa fa-h-square ls"></i>丰富的输入</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins上传-1-jq"><i class="fa fa-upl
+oad ls"></i>上传</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins验证-1-jq"><i class="fa fa-key ls"></i>验证</a></li>
+                    </ul>
+                    <ul id="nz3" class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins音频和视频-1-jq"><i class="fa fa-play-circle-o ls"></i>音频和视频</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www
+.jq22.com/jquery-plugins幻灯片和轮播图-1-jq"><i class="fa fa-exchange ls"></i>幻灯片和轮播图</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins图片展示-1-jq"><i class="fa fa-eye ls"></
+i>图片展示</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins图像-1-jq"><i class="fa fa-picture-o ls"></i>图像</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com
+/jquery-plugins地图-1-jq"><i class="fa fa-map-marker ls"></i>地图</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins滑块和旋转-1-jq"><i class="fa fa-arrows-h ls"></i>滑块和旋转</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-pluginsTabs-1-jq"><i class="fa fa-folder-o ls"></i>Tabs</a></li>
+                    </ul>
+                    <ul id="nz4" class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins水平导航-1-jq"><i class="fa fa-long-arrow-right ls"></i>水平导航</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plu
+gins垂直导航-1-jq"><i class="fa fa-long-arrow-down ls"></i>垂直导航</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins文件树-1-jq"><i class="fa fa-sitemap ls"></i>文件树</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins分页-1-jq"><i class="fa fa-chevron-right ls"></i>分页</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins手风琴
+菜单-1-jq"><i class="fa fa-trello ls"></i>手风琴菜单</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins其他导航-1-jq"><i class="fa fa-location-arrow ls"></i>其他导航</a></li>
+                    </ul>
+                    <ul i d="nz5" class="nn list-inline container m0" style="display: none;">
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins动画效果-1-jq"><i class="fa fa-rocket ls"></i>动画效果</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins浏览器调整-1-jq"><i class="fa fa-expand ls"></i>浏览器调整</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins移动-1-
+jq"><i class="fa fa-arrows-v ls"></i>移动</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins独立的部件-1-jq"><i class="fa fa-cogs ls"></i>独立的部件</a></li>
+                        <li><a class="c-btn c-btn--
+border-line" href="http://www.jq22.com/jquery-plugins杂项-1-jq"><i class="fa fa-gift ls"></i>杂项</a></li>
+                        <li><a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins游戏-1-jq"><i class="fa fa-gamepad l
+s"></i>游戏</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--主体-->
+        <div class="container-fluid m0 bod top70" id="zt">
+            <div class="felbanner">
+                <div class="feiseo"> <input placeholder="输入
+插件关键字.." id="searchtxt" onkeyup="autoComplete.start(event)" /><button class="btn banbutt" type="button" id="seobut"><i class="fa fa-search"></i></button> </div>
+            </div>
+            <div class="container
+ m0 ">
+                <ol class="breadcrumb jjk20 top10">
+                    <li><a href="http://www.jq22.com/">首页</a></li>
+                    <li class="active">UI</li>
+                    <li id="ts" style="float: right; font-size: 1
+3px; "> <a href="http://www.jq22.com/jq1-jq1" data-para="time"><i class="fa fa-flag"></i> &nbsp;最新发布</a> <a href="http://www.jq22.com/jq1-jq4" data-para="comments"><i class="fa fa-
+heart"></i> &nbsp;最多收藏</a> <a href="http://www.jq22.com/jq1-jq2" data-para="comments"><i class="fa fa-comments-o"></i> &nbsp;最多评论</a> <a href="http://www.jq22.com/jq1-jq3" data -para="downloads"><i class="fa fa-arrow-circle-o-down"></i> &nbsp;最多下载</a>
+                        <a href="http://www.jq22.com/jq1-jq8" data-para="ie8"><i class="fa fa-bus"></i> &nbsp;兼容IE8</a> <a href="http://www.jq22.com/jq1-jq6" data-para="ie6"><i class="fa fa-motorcycle"></i> &nbsp;兼容IE6</a> </li>
+                </ol>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="http
+s://juejin.im/welcome/frontend?utm_source=jq22&utm_medium=banner&utm_content=hailiang&utm_campaign=q4_website" target="_blank" onclick="adtonji6()"> <img src="img/juejing.png">
+                        <div class="cover-info">
+                            <h4>掘金一个帮助开发者成长的社区</h4> <small>从前端教程到最佳实践，从性能优化到开源库，来掘金你不会错过前端开发的技术干货...</small> </div>
+                    </a>
+                    <div class="cover-fiel
+ds"><i class="fa fa-list-ul"></i> &nbsp;Advertisement</div>
+                    <div class="cover-stat" style="text-align: center; font-weight: bold;  "> www.jq22.com </div>
+                </div>
+                <script>
+                    function adtonji6() {
+                        $.post("adtongji.aspx ", {
+                            name: " a6 "
+                        })
+                    }
+                </script>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info17459" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-21-22-4
+6-19.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17459" target="_blank">
+                            <h4>11种HTML5和CSS3炫酷文字样式和鼠标滑过特效</h4>
+                        </a> <small>
+这是一款效果非常炫酷的HTML5和CSS3文字样式和鼠标滑过特效插件。该文字特效中包含了11种不同的文字样式和鼠标滑过文字时的动画效果。部分文字动画效果使用了SVG和HTML5 Canvas来制作。</small>
+                    </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 悬停 </div>
+                    <div clas s="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;119</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;9</span>
+                        <div class="cover-yh">
+                            <a href="mem682864" data-container="body" data-toggle="popover" data-placement="top" data-content="不减肥成功决不改名 "> <i class="f
+a fa-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-m
+d-3 col-sm-4">
+                    <a href="jquery-info17425" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-18-23-49-47.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17425" target="_blank">
+                            <h4>h5响应式网站模板适配移动端</h4>
+                        </a> <small>h5响应式网站整套模板，手机已适配</small> </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 布局 </div>
+                    <div class="cover-stat">
+                        <i class="fa fa-eye"></i><span class="f10"> &nbsp;1425</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;23</span>
+                        <div class="cove
+r-yh">
+                            <a href="mem682864" data-container="body" data-toggle="popover" data-placement="top" data-content="不减肥成功决不改名 "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info17415" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-18-10-35-08.png"></a>
+                    <div class="cover-info">
+                        <a href="jque
+ry-info17415" target="_blank">
+                            <h4>jQuery弹出层插件Pop</h4>
+                        </a> <small>Pop是基于JQ编写的一个弹出层插件，其中使用了大量CSS3效果，内置了CSS样式无需再调用CSS样式，当然您也可以使用自己的CSS样式，扩展
+能力极强！</small> </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 工具提 示,弹出层 </div>
+                    <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;1196</span> <i class="fa fa-he
+art"></i></i><span class="f10"> &nbsp;18</span>
+                        <div class="cover-yh">
+                            <a href="mem663078" data-container="body" data-toggle="popover" data-placement="top" data-con tent="杨小样同学的快乐生活 "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info17393" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-17-22-12-51.png">
+                    </a>
+                    <div class="cover-info">
+                        <a href="jquery-info17393" target="_blank">
+                            <h4>JQuery滚动条插件jscroll.js</h4>
+                        </a> <small>JQuery滚动条插件jscroll.j
+s,支持火狐谷歌IE等主流浏览器,超轻量兼容好</small> </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 滚动 </div>
+                    <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;1004</span>
+                        <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;8</span>
+                        <div class="cover-yh">
+                            <a href="mem636579" data-container="body" data-toggle="popover" data-placem ent="top" data-content="一首歌、一段情 "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info17376" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-15-11
+-07-09.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17376" target="_blank">
+                            <h4>miniMobile移动端框架</h4>
+                        </a> <small>采用rem单位自动响应
+，并提供独有栅格化系统快速定义宽高、边距节省css代码量，同时总结各大型移动端网页，提供一套ui颜色搭配规范，尺寸规范，字体规范等。</small> </div>
+                    <div cla ss="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 布局 </div>
+                    <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;2288</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;48</span>
+                        <div class="cover-yh">
+                            <a href="mem72237" data-container="body" data-toggle="popover" data-placement="top" data-content="～Baby～ "> <i class="fa fa-user-secret"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-
+info17348" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-14-12-41-17.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17348" target="_blank">
+                            <h4>简 洁的jQuery滚动条插件scrollBar.js
+                            </h4>
+                        </a> <small>本插件会将容器中滚动条样式进行统一，通过修改css任意改变滚动条的宽度与颜色，实现自定义滚动条的目的。</small>
+                    </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 滚动 </div>
+                    <div c lass="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;1407</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;13</span>
+                        <div class="cover-yh">
+                            <a href="mem203300" data-container="body" data-toggle="popover" data-placement="top" data-content="冰冰柠檬茶 "> <i class="fa f
+a-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3
+ col-sm-4">
+                    <a href="jquery-info17323" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-12-10-46-27.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17323" target="_blank">
+                            <h4>仿百度侧边栏插件</h4>
+                        </a> <small>jQuery仿百度百科侧边栏滑动插件</small> </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 垂直导航,滚动 </div>
+                    <div class="cover-stat">
+                        <i class="fa fa-eye"></i><span class="f10"> &nbsp;1713</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;32</span>
+                        <div class="cover-yh">
+                            <a href="mem583377" data-container="body" data-toggle="popover" data-placement="top" data-content="?? "> <i class="fa fa-user-secret"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    < a href="jquery-info17315" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-12-10-06-47.png"></a>
+                        <div class="cover-info">
+                            <a href="jquery-info17315" target="
+_blank">
+                                <h4>jQuery和css3超酷图片预览插件</h4>
+                            </a> <small>前端图片预览插件</small> </div>
+                        <div class="cover-fields">
+                            <i class="fa fa-list-ul"></i> &nbsp; 弹出层,幻灯片和轮播图 </div>
+                        <div class="cover-stat"> <i class="fa
+ fa-eye"></i><span class="f10"> &nbsp;1852</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;31</span>
+                            <div class="cover-yh">
+                                <a href="mem608555" data-container="body" data-toggle="popover" data-placement="top" data-content="我是好儿狼 "> <i class="fa fa-user-secret"></i> </a>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info172
+62" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-10-12-02-58.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17262" target="_blank">
+                            <h4>minirefres h优雅的H5 下拉刷新</h4>
+                        </a> <small>优雅的H5 下拉刷新。零依赖，高性能，多主题，易拓展。</small> </div>
+                    <div class="cover-fiel
+ds"> <i class="fa fa-list-ul"></i> &nbsp; 加载,拖和放,滚动 </div>
+                    <div class="cover-stat"> <i c lass="fa fa-eye"></i><span class="f10"> &nbsp;1199</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;34</span>
+                        <div class="cover-yh">
+                            <a href="mem713504" data-container="body" data-toggle="popover" data-placement="top" data-content="dailc "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info
+17240" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-09-23-46-15.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17240" target="_blank">
+                            <h4>jQuery 提示框插件myAlert
+                            </h4>
+                        </a> <small>myAlert带有确认按钮的提示框，可以自定义回调函数，超轻量只有3kb且兼容ie6</small> </div>
+                    <di v class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 工具提示,弹出层 </div>
+                <div class="cover-stat">
+                    <i class="fa fa-eye"></i><span class="f10"> &nbsp;1923</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;12</span>
+                    <div class="cover-yh">
+                        <a href="mem243947" data-container="body" data-toggle="popover" data-placement="top" data-content="豆豆天尊 "> <i class="fa fa-user-secret"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <a href="jquery-info17216" target="_blank"><img src="http://assets.jq22.com/plugin/2017-12-07-17-04-31.png"></a>
+                <div class="cover-info">
+                    <a href="jquery-info17216" target="_blank">
+                        <h4>仿IOS风格的弹出框</h4>
+                    </a> <small>jQuery仿IOS风格的弹出框</small> </div>
+                <div class="cover-fields">
+                    <i class="fa fa-list-ul"></i> &nbsp; 弹出层 </div>
+                <div class="cover-stat"> <i class="fa fa-eye"></i>
+                    <spa n class="f10"> &nbsp;1638</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;16</span>
+                        <div class="cover-yh">
+                            <a href="mem270
+884" data-container="body" data-toggle="popover" data-placement="top" data-content="迪幽珂 "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <a href="jquery-info17204" target="_blank">
+                    < img src="http://assets.jq22.com/plugin/2017-12-07-11-04-25.png"></a>
+                <div class="cover-info">
+                    <a href="jquery-info17204" target="_blank">
+                        <h4>响应式网格项目动画布局</h4>
+                    </a>
+                    <small>具有网格项目动画效果的响应式杂志式网站布局，在打开内容时发生。</small> </div>
+                <div class="cover-fields">
+                    <i class="fa fa-list-ul"></i> &nbsp; 布局 </div>
+                <div class="cover-stat"> <i class="fa fa-eye"></i><span c lass="f10"> &nbsp;3035</span> <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;58</span>
+                    <div class="cover-yh">
+                        <a href="mem583720
+" data-container="body" data-toggle="popover" data-placement="top" data-content="芒果 "> <i class="fa fa-user-secret"></i> </a>
+                        < /div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4">
+                    <a href="jquery-info17174" target="_blank"><img s rc="http://assets.jq22.com/plugin/2017-12-04-11-51-14.png"></a>
+                    <div class="cover-info">
+                        <a href="jquery-info17174" target="_blank">
+                            <h4>文字效果和互动理念</h4>
+                        </a>
+                        <small>提供了9种文字动画（悬停）效果。</small> </div>
+                    <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 动画效果,悬停 </div>
+                    <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;1938</span>r n <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;18</span>
+                        <div class="cover-yh">
+                            <a href="mem583720" data-container="body" data-to ggle="popover" data-placement="top" data-content="芒果 "> <i class="fa fa-user-secret"></i> </a>
+                        </div>
+                        </ div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <a href="jquery-info17173" target="_blank"><img src="http://assets.jq22.com/plug
+in/2017-12-04-09-56-06.png"></a>
+                        <div class="cover-info">
+                            <a href="jquery-info17173" target="_blank">
+                                <h4>CSS网格布局幻灯片</h4>
+                            </a> <small>每个幻
+灯片都有一个单独的CSS网格布局和浏览时的显示效果。</small> </div>
+                        <div class="cover-fields"> <i class="fa fa-list-ul"></i> &n bsp; 布局,幻灯片和轮播图 </div>
+                        <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;3309</span>
+                            <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;18</span>
+                            <div class="cover-yh">
+                                <a href="mem583720" data-container="body" data-togg le="popover" data-placement="top" data-content="芒果 "> <i class="fa fa-user-secret"></i> </a>
+                            </div>
+                            </di v>
+                        </div>
+                        <div class="col-lg-4 col-md-3 col-sm-4">
+                            <a href="jquery-info17172" target="_blank"><img src="http://assets.jq22.com/plugin
+/2017-12-04-01-01-57.png"></a>
+                            <div class="cover-info">
+                                <a href="jquery-info17172" target="_blank">
+                                    <h4>Css菜单悬停效果</h4>
+                                </a> <small>一些菜单链
+接悬停效果为您的灵感， 使用CSS和Javript创建单个字母动画。</small> </div>
+                            <div class="cover-fields"> <i class="fa fa-list-ul"></i> &nbsp; 悬停 </div>
+                            <div class="cover-stat"> <i class="fa fa-eye"></i><span class="f10"> &nbsp;1087</span>
+                                <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;20</span>
+                                <div class="cover-yh">
+                                    <a href="mem583720" data-container="body" data-toggle="pop
+over" data-placement="top" data-content="芒果 "> <i class="fa fa-user-secret"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-nav-wrap">
+                            <ul class="posts-nav">
+                                <li c lass='next'><a href='jqueryUI-2-jq' class='next'>←</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="a
+uto_hidden" id="tauto"></div>
+                <!--end主体-->
+                <script src="/js/jquery.min.js"></script>
+                <script src="/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="js/m.js" charset="gbk"></script>
+                <scrip t>$("#seobut").click(function () {var seo = $("#searchtxt").val(); if (seo.length > 1) { window.location.href = "search?seo=" + seo; }});$('#searchtxt').bind('keypress', function (event) { if (event.keyCode == "13") { var seo = $("#searchtxt").val();if
+                    (seo.length > 1) {window.location.href = "search?seo=" + seo; } }});</script>
+                    <!--底部-->
+                    <nav class="foot navbar-inverse navbar-fixed-bottom">
+                        <ul class="list-inli
+ne">
+                            <li class="footer-ss"><a href="copyright.aspx">版权声明</a></li>
+                            <li class="footer-ss"><a href="feedback.aspx">在线反馈</a></li>
+                            <li class="footer-ss"><a href="cooperation.aspx">广告合作</a>
+                            </li>
+                            <li class="footer-ss">帮助中心</li>
+                            <li>Copyright © 2012-2017 jQuery插件库Version 3.0.0. 备案号:<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">沪ICP备13043785号-1</a></li>
+                        </ul>
+                        <ul class="list-inline text-right">
+                            <li> </li>
+                        </ul>
+                    </nav>
+                    <script>
+                        var _hmt = _hmt || [];
+                        (function() {
+
+                            var hm = document.cr
+                            eateElement("script");
+                            hm.src = "//hm.baidu.com/hm.js?b3a3fc356d0af38b811a0ef8d50716b8";
+
+                            var s = document.getElementsByTagName("script")[0];
+                            s.parentNode.insertBefore(hm, s);
+
+                        })();
+                    </script>
+                    <!--end底部-->
+                    <script src="/js/bbaufl.js?v=2"></script>
+                    <script type="text/javascript" src="/js/audate.js"></script>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoo
+gle.js"></script>
+</body>
+
+</html>
